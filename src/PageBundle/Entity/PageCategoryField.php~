@@ -1,0 +1,40 @@
+<?php
+
+namespace PageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Page
+ * @package PageBundle\Entity
+ * @ORM\Entity
+ * @ORM\Table(name="page_field_category")
+ */
+class PageCategoryField {
+  /**
+   * @ORM\Column(type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  private $id;
+
+  /**
+   * @ORM\Column(type="string", length=40)
+   */
+  private $language;
+
+  /**
+   * @ORM\OneToOne(targetEntity="Page")
+   * @ORM\JoinColumn(name="entity_id", referencedColumnName="id")
+   */
+  private $entity;
+
+  /**
+   * @ORM\Column(type="integer")
+   */
+  private $category;
+
+  public function __construct() {
+    $this->language = 'en';
+  }
+}

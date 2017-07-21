@@ -1,0 +1,38 @@
+<?php
+
+
+namespace PageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Page
+ * @package PageBundle\Entity
+ * @ORM\Entity
+ * @ORM\Table(name="page")
+ */
+class Page {
+
+  /**
+   * @ORM\Column(type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  private $id;
+  /**
+   * @ORM\Column(type="string", length=40)
+   */
+  private $type;
+
+  /**
+   * @ORM\Column(type="datetime")
+   */
+  private $created;
+
+
+  public function typeList(){
+    return [
+      'article', 'page'
+    ];
+  }
+}

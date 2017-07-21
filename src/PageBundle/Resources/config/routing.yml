@@ -1,0 +1,16 @@
+
+page_add:
+  path: /page/add/{type}
+  defaults: { _controller: PageBundle:Page:add, type: null }
+
+page_view:
+  path: /page/{id}
+  defaults: { _controller: PageBundle:Page:view, id: null }
+  requirements:
+    id: '\d+'
+
+page_edit:
+  path: /page/{id}/edit
+  defaults: { _controller: PageBundle:Page:edit, id: null }
+  requirements:
+    id: '\d+'

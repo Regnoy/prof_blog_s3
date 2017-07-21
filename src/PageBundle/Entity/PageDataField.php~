@@ -1,0 +1,58 @@
+<?php
+
+
+namespace PageBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Page
+ * @package PageBundle\Entity
+ * @ORM\Entity
+ * @ORM\Table(name="page_data_field")
+ */
+class PageDataField {
+
+  /**
+   * @ORM\Column(type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+  private $id;
+
+  /**
+   * @ORM\OneToOne(targetEntity="Page")
+   * @ORM\JoinColumn(name="entity_id", referencedColumnName="id")
+   */
+
+  private $entity;
+
+  /**
+   * @ORM\Column(type="string")
+   */
+  private $language;
+
+  /**
+   * @ORM\Column(type="string")
+   */
+  private $title;
+
+  /**
+   * @ORM\Column(type="integer")
+   */
+  private $user;
+  /**
+   * @ORM\Column(type="integer")
+   */
+  private $status;
+  /**
+   * @ORM\Column(type="datetime")
+   */
+  private $created;
+  /**
+   * @ORM\Column(type="datetime")
+   */
+  private $changed;
+
+
+}

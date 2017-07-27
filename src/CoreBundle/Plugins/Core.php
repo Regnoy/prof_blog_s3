@@ -1,7 +1,7 @@
 <?php
 
 
-namespace CoreBundle\Core;
+namespace CoreBundle\Plugins;
 
 
 

@@ -8,6 +8,12 @@
 
 namespace PageBundle\Forms\Model;
 
+
+use CoreBundle\Plugins\Core;
+use PageBundle\Entity\Page;
+use PageBundle\Entity\PageBodyField;
+use PageBundle\Entity\PageCategoryField;
+use PageBundle\Entity\PageDataField;
 use Symfony\Component\Validator\Constraints as Assert;
 
 class PageArticleModel {
@@ -15,7 +21,7 @@ class PageArticleModel {
 
   /**
    * @Assert\NotBlank(
-   *   message = 'Title is required'
+   *   message = "Title is required"
    * )
    */
   private $title;
@@ -30,16 +36,10 @@ class PageArticleModel {
    */
   private $category;
 
-  /**
-   * @return mixed
-   */
   public function getTitle() {
     return $this->title;
   }
 
-  /**
-   * @param mixed $title
-   */
   public function setTitle($title) {
     $this->title = $title;
   }
@@ -72,6 +72,23 @@ class PageArticleModel {
     $this->category = $category;
   }
   public function save(){
+    $em = Core::em();
+    $page = new Page();
+    $page->setType('article');
+    $em->persist($page);
+    $pageDataField = new PageDataField();
+    $pageDataField->setEntity($page)->setTitle($this->title);
+    $em->persist($pageDataField);
+    $pageBodyField= new PageBodyField();
+    $pageBodyField->setEntity($page)->setBody($this->body);
+    $em->persist($pageBodyField);
+    $pageCategoryField = new PageCategoryField();
+    $pageCategoryField->setEntity($page)->setCategory($this->category);
+    $em->persist($pageCategoryField);
+
+    $em->flush();
+
+
 
   }
 }

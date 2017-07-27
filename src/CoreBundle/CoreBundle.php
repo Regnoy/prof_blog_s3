@@ -4,7 +4,7 @@
 namespace CoreBundle;
 
 
-use CoreBundle\Core\Core;
+use CoreBundle\Plugins\Core;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

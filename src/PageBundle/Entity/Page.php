@@ -142,4 +142,7 @@ class Page implements ContentEntityInterface {
   public function formmaterWidget(){
 
   }
+  public static function save($page){
+
+  }
 }

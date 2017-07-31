@@ -9,12 +9,20 @@ use PageBundle\Forms\Model\PageArticleModel;
 use PageBundle\Forms\Model\PageBasicModel;
 use PageBundle\Forms\PageArticleForm;
 use PageBundle\Forms\PageBasicForm;
+use CoreBundle\Plugins\Entity\Annotation\ContentEntityView;
 
 /**
  * Class Page
  * @package PageBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="page")
+ * @ContentEntityView(
+ *   id = "page",
+ *   type = {"article", "basic"},
+ *   tableData = {
+        "class" = "PageBundle\Entity\PageDataField"
+ *   }
+ * )
  */
 class Page implements ContentEntityInterface {
 

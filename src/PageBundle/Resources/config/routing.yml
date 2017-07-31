@@ -14,3 +14,7 @@ page_edit:
   defaults: { _controller: PageBundle:Page:edit, id: null }
   requirements:
     id: '\d+'
+
+page_test:
+  path: /test/page
+  defaults: { _controller: PageBundle:Page:test }

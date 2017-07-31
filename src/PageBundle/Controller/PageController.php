@@ -8,6 +8,8 @@
 
 namespace PageBundle\Controller;
 
+use CoreBundle\Plugins\Entity\Annotation\ContentEntityView;
+use Doctrine\Common\Annotations\AnnotationReader;
 use PageBundle\Entity\Page;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,5 +46,16 @@ class PageController extends Controller {
   public function editAction($id){
     var_dump("edit add" .$id);
     return $this->render('@Web/Page/page.html.twig');
+  }
+
+  public function testAction(){
+    $annotationReader = new AnnotationReader();
+    $annotation = $annotationReader->getClassAnnotation( new \ReflectionClass(Page::class), ContentEntityView::class );
+    if(!$annotation){
+      var_dump("is not annotation");
+    }
+    var_dump($annotation);
+
+    return $this->render('::html.html.twig');
   }
 }

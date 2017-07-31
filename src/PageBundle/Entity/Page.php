@@ -3,7 +3,7 @@
 
 namespace PageBundle\Entity;
 
-use CoreBundle\Plugins\Content\ContentEntityInterface;
+use CoreBundle\Plugins\Entity\EntityView;
 use Doctrine\ORM\Mapping as ORM;
 use PageBundle\Forms\Model\PageArticleModel;
 use PageBundle\Forms\Model\PageBasicModel;
@@ -24,7 +24,7 @@ use CoreBundle\Plugins\Entity\Annotation\ContentEntityView;
  *   }
  * )
  */
-class Page implements ContentEntityInterface {
+class Page extends EntityView  {
 
   /**
    * @ORM\Column(type="integer")

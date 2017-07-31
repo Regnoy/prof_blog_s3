@@ -49,12 +49,15 @@ class PageController extends Controller {
   }
 
   public function testAction(){
-    $annotationReader = new AnnotationReader();
-    $annotation = $annotationReader->getClassAnnotation( new \ReflectionClass(Page::class), ContentEntityView::class );
-    if(!$annotation){
-      var_dump("is not annotation");
-    }
-    var_dump($annotation);
+    $page = new Page();
+    $defition = $page->getDefinition();
+    var_dump($defition);
+//    $annotationReader = new AnnotationReader();
+//    $annotation = $annotationReader->getClassAnnotation( new \ReflectionClass(Page::class), ContentEntityView::class );
+//    if(!$annotation){
+//      var_dump("is not annotation");
+//    }
+//    var_dump($annotation);
 
     return $this->render('::html.html.twig');
   }

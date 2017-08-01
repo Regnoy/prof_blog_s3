@@ -8,6 +8,7 @@
 
 namespace PageBundle\Controller;
 
+use CoreBundle\Plugins\Core;
 use CoreBundle\Plugins\Entity\Annotation\ContentEntityView;
 use Doctrine\Common\Annotations\AnnotationReader;
 use PageBundle\Entity\Page;
@@ -18,9 +19,10 @@ class PageController extends Controller {
   public function addAction($type, Request $request){
     $pageType = Page::getTypeDefinition($type);
     if(!$pageType){
-      $types = Page::typeDefinition();
+      $contentEntityManager = $this->get('content.entity.mamager');
+      $types = $contentEntityManager->getType('page');
       return $this->render('@Page/Page/view.html.twig',[
-        'types' => array_keys($types)
+        'types' => $types
       ]);
     }
     $pageModel = new $pageType['model']();
@@ -50,8 +52,13 @@ class PageController extends Controller {
 
   public function testAction(){
     $page = new Page();
-    $defition = $page->getDefinition();
-    var_dump($defition);
+
+    $contentEntityManager = Core::$container->get('content.entity.mamager');
+    $types = $contentEntityManager->getType('page');
+    var_dump($types);
+
+    //print_r($tmpArr);
+    //==========
 //    $annotationReader = new AnnotationReader();
 //    $annotation = $annotationReader->getClassAnnotation( new \ReflectionClass(Page::class), ContentEntityView::class );
 //    if(!$annotation){

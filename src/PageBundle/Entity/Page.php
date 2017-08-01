@@ -18,7 +18,6 @@ use CoreBundle\Plugins\Entity\Annotation\ContentEntityView;
  * @ORM\Table(name="page")
  * @ContentEntityView(
  *   id = "page",
- *   type = {"article", "basic"},
  *   tableData = {
         "class" = "PageBundle\Entity\PageDataField"
  *   }

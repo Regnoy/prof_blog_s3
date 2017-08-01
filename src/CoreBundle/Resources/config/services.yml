@@ -1,0 +1,4 @@
+services:
+  content.entity.mamager:
+    class: CoreBundle\Plugins\Entity\ContentEntityManager
+    arguments: ['@kernel']

@@ -6,10 +6,13 @@ namespace CoreBundle\Plugins;
 
 
 use Doctrine\ORM\EntityManager;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class Core {
-  
-  private static $container;
+  /**
+   * @var ContainerInterface $services
+   */
+  public static $container;
   
   public static function setContainer( $container ){
     static::$container = $container;

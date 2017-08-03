@@ -3,6 +3,10 @@ services:
     class: CoreBundle\Plugins\Entity\ContentEntityManager
     arguments: ['@schema_reader']
 
+  field.manager:
+    class: CoreBundle\Plugins\Fields\FieldManager
+    arguments: ['@schema_reader']
+
   schema_reader:
     class: CoreBundle\Plugins\Utils\SchemaReader
     arguments: ['@kernel']

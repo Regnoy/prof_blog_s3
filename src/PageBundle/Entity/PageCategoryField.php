@@ -3,12 +3,16 @@
 namespace PageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use CoreBundle\Plugins\Fields\Annotation\FieldTypeEntity;
 
 /**
  * Class Page
  * @package PageBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="page_field_category")
+ * @FieldTypeEntity(
+ *   id = "field_category"
+ * )
  */
 class PageCategoryField {
   /**

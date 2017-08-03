@@ -15,7 +15,6 @@ class Common {
     $arr = array();
     $ref = &$arr;
     $ttl = count($convert_array);
-
     foreach ($convert_array as $k => $key) {
       $def = [];
       if($k == ($ttl-1))

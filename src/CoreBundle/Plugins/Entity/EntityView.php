@@ -8,10 +8,8 @@
 
 namespace CoreBundle\Plugins\Entity;
 
-
 use CoreBundle\Plugins\Entity\Annotation\ContentEntityView;
 use Doctrine\Common\Annotations\AnnotationReader;
-use PageBundle\Entity\Page;
 
 class EntityView {
 

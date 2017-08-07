@@ -4,13 +4,13 @@
 namespace PageBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use CoreBundle\Plugins\Fields\Annotation\FieldTypeEntity;
+use CoreBundle\Plugins\Fields\Annotation\FieldStorage;
 /**
  * Class Page
  * @package PageBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="page_data_field")
- * @FieldTypeEntity(
+ * @FieldStorage(
  *   id = "field_data"
  * )
  */

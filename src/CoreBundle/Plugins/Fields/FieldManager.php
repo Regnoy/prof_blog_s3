@@ -20,7 +20,7 @@ class FieldManager {
   }
   public function getFieldDefinitions( $machine_name ){
     $schema = $this->schemaReader->getSchema();
-    return $schema[$machine_name]['fields'];
+    return $schema['field_storage'][$machine_name];
   }
   public function getFieldDefinition($machine_name, $type){
     $definition = $this->getFieldDefinitions($machine_name);

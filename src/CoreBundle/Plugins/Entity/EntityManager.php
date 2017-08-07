@@ -5,7 +5,7 @@ namespace CoreBundle\Plugins\Entity;
 
 use CoreBundle\Plugins\Utils\SchemaReader;
 
-class ContentEntityManager {
+class EntityManager {
 
   private $schemaReader;
 
@@ -15,6 +15,6 @@ class ContentEntityManager {
 
   public function getType( $machine_name ){
     $schema = $this->schemaReader->getSchema();
-    return $schema[$machine_name]['type'];
+    return $schema['entity_content'][$machine_name];
   }
 }

@@ -7,13 +7,13 @@
  */
 
 namespace CoreBundle\Plugins\Fields\Annotation;
-use CoreBundle\Plugins\Fields\FieldType;
+use CoreBundle\Plugins\Fields\FieldStorageBase;
 
 
 /**
  * @Annotation
  * @Target("CLASS")
  */
-class FieldTypeEntity extends FieldType {
+class FieldStorage extends FieldStorageBase {
 
 }

@@ -9,14 +9,14 @@ use PageBundle\Forms\Model\PageArticleModel;
 use PageBundle\Forms\Model\PageBasicModel;
 use PageBundle\Forms\PageArticleForm;
 use PageBundle\Forms\PageBasicForm;
-use CoreBundle\Plugins\Entity\Annotation\ContentEntityView;
+use CoreBundle\Plugins\Entity\Annotation\ContentEntity;
 
 /**
  * Class Page
  * @package PageBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="page")
- * @ContentEntityView(
+ * @ContentEntity(
  *   id = "page",
  *   tableData = {
         "class" = "PageBundle\Entity\PageDataField"

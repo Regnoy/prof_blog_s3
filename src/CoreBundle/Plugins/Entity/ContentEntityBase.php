@@ -9,7 +9,7 @@
 namespace CoreBundle\Plugins\Entity;
 
 
-class ContentEntity implements ContentEntityInterface {
+class ContentEntityBase implements ContentEntityInterface {
 
   public $id;//page
 

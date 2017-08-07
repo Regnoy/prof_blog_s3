@@ -1,7 +1,7 @@
 <?php
 
 namespace CoreBundle\Plugins\Entity\Annotation;
-use CoreBundle\Plugins\Entity\ContentEntity;
+use CoreBundle\Plugins\Entity\ContentEntityBase;
 
 /**
  * Class ContentEntityView
@@ -10,6 +10,6 @@ use CoreBundle\Plugins\Entity\ContentEntity;
  * @Target("CLASS")
  */
 
-class ContentEntityView extends ContentEntity {
+class ContentEntity extends ContentEntityBase {
 
 }

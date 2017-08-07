@@ -9,13 +9,12 @@
 namespace CoreBundle\Plugins\Fields;
 
 
-class FieldType {
+class FieldStorageBase {
   public $id;
 
   public function getId() {
     return $this->id;
   }
-
 
   public function setId($id) {
     $this->id = $id;

@@ -18,13 +18,19 @@ use Symfony\Component\HttpFoundation\Request;
 class PageController extends Controller {
   public function addAction($type, Request $request){
     $pageType = Page::getTypeDefinition($type);
+    $entityManager = $this->get('entity.manager');
     if(!$pageType){
-      $contentEntityManager = $this->get('content.entity.mamager');
-      $types = $contentEntityManager->getType('page');
+
+      $types = $entityManager->getType('page');
       return $this->render('@Page/Page/view.html.twig',[
         'types' => $types
       ]);
     }
+//    var_dump($entityManager->getFieldDefinition());
+    $page = new Page();
+    $page->setType($type);
+    var_dump($page->getFieldDefinition());
+    return $this->render('html.html.twig');
     $pageModel = new $pageType['model']();
     $form = $this->createForm($pageType['form'], $pageModel);
     $form->handleRequest($request);

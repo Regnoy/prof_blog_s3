@@ -18,6 +18,10 @@ class ContentEntityBase implements ContentEntityInterface {
   public $tableData = [];
 
 
+  public function id(){
+    return $this->id;
+  }
+
   public function getId(){
     return $this->id;
   }

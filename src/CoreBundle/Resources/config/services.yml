@@ -1,6 +1,6 @@
 services:
-  content.entity.mamager:
-    class: CoreBundle\Plugins\Entity\ContentEntityManager
+  entity.manager:
+    class: CoreBundle\Plugins\Entity\EntityManager
     arguments: ['@schema_reader']
 
   field.manager:

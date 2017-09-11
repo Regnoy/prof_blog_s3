@@ -18,12 +18,12 @@ class FieldManager {
   public function __construct( SchemaReader $schemaReader ) {
     $this->schemaReader = $schemaReader;
   }
-  public function getFieldDefinitions( $machine_name ){
+  public function getDefinitions( $machine_name ){
     $schema = $this->schemaReader->getSchema();
     return $schema['field_storage'][$machine_name];
   }
-  public function getFieldDefinition($machine_name, $type){
-    $definition = $this->getFieldDefinitions($machine_name);
+  public function getDefinition($machine_name, $type){
+    $definition = $this->getDefinitions($machine_name);
     return $definition[$type];
   }
 }

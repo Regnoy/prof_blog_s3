@@ -3,8 +3,11 @@
 
 namespace PageBundle\Entity;
 
+use CoreBundle\Plugins\Entity\EntityFieldInterface;
 use Doctrine\ORM\Mapping as ORM;
 use CoreBundle\Plugins\Fields\Annotation\FieldStorage;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Test\FormBuilderInterface;
 
 /**
  * Class Page
@@ -15,7 +18,7 @@ use CoreBundle\Plugins\Fields\Annotation\FieldStorage;
  *   id = "field_body"
  * )
  */
-class PageBodyField {
+class PageBodyField implements EntityFieldInterface {
   /**
    * @ORM\Column(type="integer")
    * @ORM\Id
@@ -124,4 +127,10 @@ class PageBodyField {
     {
         return $this->entity;
     }
+
+  public function buildForm(FormBuilderInterface $builder, array $options) {
+    $builder->add('body', TextareaType::class,[
+      'label' => 'Body'
+    ]);
+  }
 }

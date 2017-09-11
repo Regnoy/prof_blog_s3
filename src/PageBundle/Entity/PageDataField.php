@@ -3,8 +3,13 @@
 
 namespace PageBundle\Entity;
 
+use CoreBundle\Plugins\Entity\EntityFieldInterface;
 use Doctrine\ORM\Mapping as ORM;
 use CoreBundle\Plugins\Fields\Annotation\FieldStorage;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Test\FormBuilderInterface;
+
 /**
  * Class Page
  * @package PageBundle\Entity
@@ -14,7 +19,7 @@ use CoreBundle\Plugins\Fields\Annotation\FieldStorage;
  *   id = "field_data"
  * )
  */
-class PageDataField {
+class PageDataField implements EntityFieldInterface {
 
   /**
    * @ORM\Column(type="integer")
@@ -243,5 +248,14 @@ class PageDataField {
   public function getEntity()
   {
     return $this->entity;
+  }
+
+  public function buildForm(FormBuilderInterface $builder, array $options) {
+    $builder->add('title', TextType::class,[
+      'label' => 'title'
+    ]);
+    $builder->add('created', DateType::class,[
+      'label' => 'title'
+    ]);
   }
 }

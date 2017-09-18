@@ -3,13 +3,14 @@
 
 namespace PageBundle\Entity;
 
+use CoreBundle\Extend\ContentEntity\Content\ContentEntity;
 use CoreBundle\Plugins\Entity\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use PageBundle\Forms\Model\PageArticleModel;
 use PageBundle\Forms\Model\PageBasicModel;
 use PageBundle\Forms\PageArticleForm;
 use PageBundle\Forms\PageBasicForm;
-use CoreBundle\Plugins\Entity\Annotation\ContentEntity;
+use CoreBundle\Extend\ContentEntity\Annotation\ContentType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -17,14 +18,14 @@ use Symfony\Component\Form\FormBuilderInterface;
  * @package PageBundle\Entity
  * @ORM\Entity
  * @ORM\Table(name="page")
- * @ContentEntity(
+ * @ContentType(
  *   id = "page",
  *   tableData = {
         "class" = "PageBundle\Entity\PageDataField"
  *   }
  * )
  */
-class Page extends Entity  {
+class Page extends ContentEntity  {
 
   /**
    * @ORM\Column(type="integer")

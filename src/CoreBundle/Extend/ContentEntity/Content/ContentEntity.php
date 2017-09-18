@@ -2,25 +2,25 @@
 /**
  * Created by PhpStorm.
  * User: pavel
- * Date: 7/31/2017
- * Time: 8:53 AM
+ * Date: 9/18/2017
+ * Time: 9:22 AM
  */
 
-namespace CoreBundle\Plugins\Entity;
+namespace CoreBundle\Extend\ContentEntity\Content;
 
+
+use CoreBundle\Extend\ContentEntity\Annotation\ContentType;
 use CoreBundle\Plugins\Core;
-use CoreBundle\Plugins\Entity\Annotation\ContentEntity;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class Entity {
-
+class ContentEntity {
   private $definition;
 
   public function getDefinition(){
     if(!$this->definition){
       $annotationReader = new AnnotationReader();
-      $annotation = $annotationReader->getClassAnnotation( new \ReflectionClass(static::class), ContentEntity::class );
+      $annotation = $annotationReader->getClassAnnotation( new \ReflectionClass(static::class), ContentType::class );
       if(!$annotation){
         throw new \Exception("Annotation not found");
       }
@@ -53,5 +53,4 @@ class Entity {
   public function buildForm(FormBuilderInterface $builder, array $options){
     //for
   }
-
 }

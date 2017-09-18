@@ -8,6 +8,7 @@ use CoreBundle\Plugins\Entity\ContentEntityBase;
  * @package CoreBundle\Plugins\Entity\Annotation
  * @Annotation
  * @Target("CLASS")
+ * @deprecated
  */
 
 class ContentEntity extends ContentEntityBase {

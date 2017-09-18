@@ -30,8 +30,6 @@ class PageController extends Controller {
 //    var_dump($entityManager->getFieldDefinition());
     $page = new Page();
     $page->setType($type);
-    $page->get('field_data');
-    $page->get('field_body');
     $form = $this->createForm( ContentEntityForm::class, null, [
       'content_entity' => $page
     ] );

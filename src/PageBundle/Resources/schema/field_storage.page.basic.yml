@@ -1,4 +1,4 @@
 fields:
-  body:
+  field_body:
     class: '\PageBundle\Entity\PageBodyField'
     weight: 1

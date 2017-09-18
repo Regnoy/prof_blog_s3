@@ -1,7 +1,7 @@
 fields:
-  body:
+  field_body:
     class: '\PageBundle\Entity\PageBodyField'
     weight: 1
-  category:
+  field_category:
     class: '\PageBundle\Entity\PageCategoryField'
     weight: 2

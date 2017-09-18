@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use CoreBundle\Plugins\Fields\Annotation\FieldStorage;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Test\FormBuilderInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Class Page
@@ -255,7 +255,7 @@ class PageDataField implements EntityFieldInterface {
       'label' => 'title'
     ]);
     $builder->add('created', DateType::class,[
-      'label' => 'title'
+      'label' => 'Created'
     ]);
   }
 }

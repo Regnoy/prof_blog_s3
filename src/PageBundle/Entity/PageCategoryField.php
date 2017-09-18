@@ -6,7 +6,7 @@ use CoreBundle\Plugins\Entity\EntityFieldInterface;
 use Doctrine\ORM\Mapping as ORM;
 use CoreBundle\Plugins\Fields\Annotation\FieldStorage;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Test\FormBuilderInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Class Page
@@ -128,7 +128,7 @@ class PageCategoryField implements EntityFieldInterface {
     }
 
   public function buildForm(FormBuilderInterface $builder, array $options) {
-    $builder->add('category', ChoiceType::class, [
+    $builder->add('field_category', ChoiceType::class, [
       'label' => 'Category',
       'choices' => [
         1 => 'Categ 1',

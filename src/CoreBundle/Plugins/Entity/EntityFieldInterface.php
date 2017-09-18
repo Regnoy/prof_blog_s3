@@ -9,7 +9,7 @@
 namespace CoreBundle\Plugins\Entity;
 
 
-use Symfony\Component\Form\Test\FormBuilderInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 
 interface EntityFieldInterface {
 

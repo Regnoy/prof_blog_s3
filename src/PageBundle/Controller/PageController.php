@@ -10,6 +10,7 @@ namespace PageBundle\Controller;
 
 use CoreBundle\Plugins\Core;
 use CoreBundle\Plugins\Entity\Annotation\ContentEntityView;
+use CoreBundle\Plugins\Entity\Forms\ContentEntityForm;
 use Doctrine\Common\Annotations\AnnotationReader;
 use PageBundle\Entity\Page;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -29,21 +30,19 @@ class PageController extends Controller {
 //    var_dump($entityManager->getFieldDefinition());
     $page = new Page();
     $page->setType($type);
-    var_dump($page->getFieldDefinition());
-    return $this->render('html.html.twig');
-    $pageModel = new $pageType['model']();
-    $form = $this->createForm($pageType['form'], $pageModel);
+    $page->get('field_data');
+    $page->get('field_body');
+    $form = $this->createForm( ContentEntityForm::class, null, [
+      'content_entity' => $page
+    ] );
     $form->handleRequest($request);
-    if($form->isSubmitted() && $form->isValid() ){
-      $pageModel->save();
+    if($form->isSubmitted() && $page->validateForm($form->getData())){
+      var_dump("valudation is action");
+      var_dump($form->getData());
     }
-    return $this->render('@Page/Page/edit.html.twig',[
+    return $this->render('@Page/Page/add.html.twig', [
       'form' => $form->createView()
     ]);
-//    if(!$type)
-
-//      throw $this->createNotFoundException('This page type not found');
-
   }
 
   public function viewAction($id){

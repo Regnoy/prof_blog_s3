@@ -11,7 +11,7 @@ namespace CoreBundle\Plugins\Entity;
 use CoreBundle\Plugins\Core;
 use CoreBundle\Plugins\Entity\Annotation\ContentEntity;
 use Doctrine\Common\Annotations\AnnotationReader;
-use Symfony\Component\Form\Test\FormBuilderInterface;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class Entity {
 
